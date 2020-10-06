@@ -113,10 +113,6 @@ def get_profil(soup,index):
         return str(profil)
 
 
-#df = pd.DataFrame({'job_title':[],'categories':[],'job_experience':[],'city':[],
- #                  'region':[],'contract_type':[],'job_intro':[],'job_task':[],'candidate_profile':[]})
-data = {'job_title':[],'categories':[],'job_experience':[],'city':[],
-       'region':[],'contract_type':[],'job_intro':[],'job_task':[],'candidate_profile':[]}
 
 jobOffers = [];
 
@@ -141,40 +137,14 @@ for link in links_list: #(iterate here for all the links) # links_list
               }
 
         jobOffers.append(jobOffer)
-        #df = df.append({'job_title':job_title,
-        #                'categories':categories,
-        #                'job_experience':job_experience,
-        #                'city':city,
-        #               'region':region,
-        #                'contract_type':contract_type,
-        #                'job_intro':job_introduction,
-        #                'job_task':job_task,
-        #               'candidate_profile':candidate_profile}, ignore_index=True)
 
-
-        #df.to_csv('matching_data.csv')
-        #df_json = df.to_json(orient='records')
-
-        #output_file = open('matching_rec.json', 'w')
-        #json.dump(df_json, output_file)
-        #output_file.close()
-
-        #data['job_title'].append(job_title),
-        #data['categories'].append(categories),
-        #data['job_experience'].append(job_experience),
-        #data['city'].append(city),
-        #data['region'].append(region),
-        #data['contract_type'].append(contract_type),
-        #data['job_intro'].append(job_introduction),
-        #data['job_task'].append(job_task),
-        #data['candidate_profile'].append(candidate_profile)
 
 
     except Exception as e:
         print('===faulty link===' + str(e))
         print(link)
-
         continue
+
 with open("C://temp/matching.json",'w')as fp1:
     json.dump(jobOffers, fp1)
 
@@ -186,9 +156,6 @@ def write_to_json(path, filename, data):
         json.dumps(str(data),fp1)
 
 
-#path = './'
-#filename = 'matching'
-#write_to_json(path,filename,data)
 
 
 
